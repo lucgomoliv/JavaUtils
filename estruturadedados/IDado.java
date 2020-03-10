@@ -1,4 +1,4 @@
-package estruturaDeDados;
+package estruturadedados;
 
 /**
  * IDado
