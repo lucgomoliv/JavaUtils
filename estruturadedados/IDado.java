@@ -3,6 +3,6 @@ package estruturadedados;
 /**
  * IDado
  */
-interface IDado extends Comparable<IDado>{
+public interface IDado extends Comparable<IDado>{
     public int getID();
 }
