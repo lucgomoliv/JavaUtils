@@ -2,7 +2,7 @@
 
 ## Interface `IDado`
 
->Representa uma interface usada para generalização dos dados que entram na classe `Fila` e `Elemento`. Qualquer classe que queira usar na `Fila`, deve implementar, `necessariamente`, a interface `IDado`.
+>Representa uma interface usada para generalização dos dados que entram na classe `Fila` e `Elemento`. Qualquer classe que queira usar na `Fila`, deve implementar, **necessariamente**, a interface `IDado`.
 
 Exemplo de Uso:
 
@@ -26,7 +26,7 @@ Exemplo de Uso:
     }
 ```
 
->Deve-se implementar os métodos `getID` e sobrescrever o método `compareTo`.
+>Deve-se implementar o método `getID` e sobrescrever o método `compareTo`.
 
 ## Classe `Elemento`
 
