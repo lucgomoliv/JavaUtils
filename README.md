@@ -7,5 +7,3 @@ Para uso no VSCode você deve criar uma pasta lib na pasta raiz do seu projeto
 Depois adicionar no .classpath a seguinte linha:  
 
 `<classpathentry kind="lib" path="lib/estruturadedados.jar"/>`
-
-Utilize `<classpathentry kind="lib" path="lib/*.jar"/>` para usar qualquer biblioteca
