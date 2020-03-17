@@ -11,4 +11,4 @@ Depois adicionar no .classpath a seguinte linha:
 `<classpathentry kind="lib" path="lib/estruturadedados.jar"/>`
 
 [Documentação `estruturadedados` em texto](estruturadedados/documentacao.md)
-[JavaDoc gerado](https://lucgomoliv.github.io/JavaUtils/docs)
+[JavaDoc gerado (página HTML)](https://lucgomoliv.github.io/JavaUtils)
