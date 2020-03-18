@@ -13,7 +13,7 @@ public class Lista {
 
     /**
      * Adiciona um elemento no final da lista
-     * @param dado
+     * @param dado dado a ser adicionado
      * @return true ou false
      */
     public boolean adicionarElemento(IDado dado){
