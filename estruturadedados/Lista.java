@@ -39,15 +39,17 @@ public class Lista {
      * @return IDado correspondente ou nulo se não existir
      */
     public IDado retirarElemento(IDado dado){
+        IDado retorno = null;
         Elemento aux = this.primeiro;
         while(aux.proximo != null){
             if(aux.proximo.dado.equals(dado)) {
+                retorno = aux.proximo.dado;
                 aux.proximo = aux.proximo.proximo;
-                return aux.proximo.dado;
+                return retorno;
             }
             aux = aux.proximo;
         }
-        return null;
+        return retorno;
     }
 
     /**
