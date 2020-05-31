@@ -1,8 +1,3 @@
-package estruturadedados;
-
-/**
- * Fila
- */
 public class Fila {
 
     private Elemento ultimo, primeiro;

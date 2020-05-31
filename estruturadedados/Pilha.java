@@ -1,8 +1,3 @@
-package estruturadedados;
-
-/**
- * Pilha
- */
 public class Pilha {
     Elemento topo, fundo;
 
