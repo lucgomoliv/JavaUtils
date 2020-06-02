@@ -5,6 +5,7 @@ public class Elemento {
     public Elemento anterior;
     public Elemento esquerda;
     public Elemento direita;
+    public int fb;
 
     public Elemento(IDado dado){
         this.dado = dado;
