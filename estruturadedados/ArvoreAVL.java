@@ -19,17 +19,20 @@ public class ArvoreAVL {
             arvore = new Elemento(dado);
         else {
             int comparacao = dado.compareTo(arvore.dado);
-            if (comparacao > 0)
+            if (comparacao > 0){
                 arvore.direita = inserir(arvore.direita, dado);
-            else if (comparacao < 0)
+            }
+            else if (comparacao < 0){
                 arvore.esquerda = inserir(arvore.esquerda, dado);
+            }
         }
+        if(arvore != null) arvore.altura = maior(altura(arvore.esquerda), altura(arvore.direita))+1;
+        arvore = balancear(arvore);
         return arvore;
     }
 
     public void inserir(IDado dado) {
         this.raiz = inserir(this.raiz, dado);
-        balancear();
     }
 
     private IDado buscar(Elemento arvore, IDado dado) {
@@ -105,10 +108,14 @@ public class ArvoreAVL {
                     return (arvore);
                 }
             } else {
-                if (arvore.dado.compareTo(dado) > 0)
+                if (arvore.dado.compareTo(dado) > 0){
                     arvore.esquerda = retirar(arvore.esquerda, dado);
-                else
+                    arvore.esquerda = balancear(arvore.esquerda);
+                }
+                else{
                     arvore.direita = retirar(arvore.direita, dado);
+                    arvore.direita = balancear(arvore.direita);
+                }
                 return arvore;
             }
         }
@@ -130,23 +137,16 @@ public class ArvoreAVL {
     }
 
     private Elemento balancear(Elemento arvore) {
-        if (arvore.esquerda == null && arvore.direita == null)
-            arvore.fb = 0;
-        else{
-            if(arvore.esquerda != null) arvore.esquerda = balancear(arvore.esquerda);
-            if(arvore.direita != null) arvore.direita = balancear(arvore.direita);
-            arvore.fb = altura(arvore.direita) - altura(arvore.esquerda);
-            if(arvore.fb == 2){
-                if(arvore.fb * arvore.direita.fb < 0) arvore.direita = rotacionarDireita(arvore.direita);
-                arvore = rotacionarEsquerda(arvore);
-                balancear(arvore);
-            }
-            else if(arvore.fb == -2){
-                if(arvore.fb * arvore.esquerda.fb < 0) arvore.esquerda = rotacionarEsquerda(arvore.esquerda);
-                arvore = rotacionarDireita(arvore);
-                balancear(arvore);
-            }
+        arvore.fb = altura(arvore.direita) - altura(arvore.esquerda);
+        if(arvore.fb == 2){
+            if(arvore.fb * arvore.direita.fb < 0) arvore.direita = rotacionarDireita(arvore.direita);
+            arvore = rotacionarEsquerda(arvore);
         }
+        else if(arvore.fb == -2){
+            if(arvore.fb * arvore.esquerda.fb < 0) arvore.esquerda = rotacionarEsquerda(arvore.esquerda);
+            arvore = rotacionarDireita(arvore);
+        }
+        if(arvore != null) arvore.altura = maior(altura(arvore.esquerda), altura(arvore.direita))+1;
         return arvore;
     }
 
@@ -155,16 +155,8 @@ public class ArvoreAVL {
     }
 
     private int altura(Elemento arvore) {
-        if (arvore == null)
-            return 0;
-        else {
-            int he = altura(arvore.esquerda);
-            int hd = altura(arvore.direita);
-            if (he < hd)
-                return hd + 1;
-            else
-                return he + 1;
-        }
+        if(arvore == null) return 0;
+        else return arvore.altura;
     }
 
     private Elemento rotacionarEsquerda(Elemento arvore) {
@@ -187,6 +179,11 @@ public class ArvoreAVL {
         arvore.esquerda = arvore.esquerda.esquerda;
         arvore.direita = novo;
         return arvore;
+    }
+
+    private int maior(int a, int b){
+        if(a > b) return a;
+        else return b;
     }
 
     // Código de impressão de árvores binárias retirado do link:
